@@ -48,8 +48,6 @@ namespace CharacterManager.Models
         /// </summary>
         public bool IsDeleted { get; set; }
 
-        
-
         /// <summary>
         /// Level is a representation of how much accumulated experience a character has earned.
         /// </summary>
