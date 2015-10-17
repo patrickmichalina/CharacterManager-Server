@@ -122,8 +122,8 @@
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Faction.cs" />
     <Compile Include="Models\Race.cs" />
-    <Compile Include="SwaggerConfig.cs" />
-    <Compile Include="WebApiConfig.cs" />
+    <Compile Include="Config\SwaggerConfig.cs" />
+    <Compile Include="Config\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
