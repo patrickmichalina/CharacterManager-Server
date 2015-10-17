@@ -1,4 +1,4 @@
-# World of Warcraft Character Manager
+# World of Warcraft Character Manager API
 Web services for the management of a World of Warcraft player’s characters.
 
 ## Character Properties
