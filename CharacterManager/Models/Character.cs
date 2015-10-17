@@ -63,5 +63,20 @@ namespace CharacterManager.Models
                 }
             }
         }
+
+        /// <summary>
+        /// Validates model
+        /// </summary>
+        /// <returns></returns>
+        public bool IsValid()
+        {
+            if (Level <= 0 && Level >= 90) return false;
+            if (string.IsNullOrEmpty(Name)) return false;
+            if (Race == null) return false;
+            if (Faction == null) return false;
+            if (Class == null) return false;
+
+            return true;
+        }
     }
 }
