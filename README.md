@@ -1,10 +1,9 @@
-# World of Warcraft Character Manager
-Web services for the management of a World of Warcraft player’s characters.
+# World of Warcraft Character Manager API
+Web services for the management of a World of Warcraft playerâ€™s characters.
 
-## Characters
-A character has the following properties:
+## Character Properties
 1. Name
-2. Level (1 – 90)
+2. Level (1 â€“ 90)
 3. Race (Orc, Tauren, Blood Elf, Human, Gnome, Worgen)
 4. Class (Warrior, Druid, Death Knight, Mage)
 5. Faction (Horde, Alliance)
