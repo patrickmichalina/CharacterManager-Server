@@ -8,6 +8,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CharacterManager.Tests
 {
+    /// <summary>
+    /// Helper methods for unit testing
+    /// </summary>
     public static class ExtendedAssert
     {
         /// <summary>

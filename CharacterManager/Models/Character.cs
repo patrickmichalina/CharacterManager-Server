@@ -35,5 +35,33 @@ namespace CharacterManager.Models
         /// Logical delete allows for deleting/undeleting of characters.
         /// </summary>
         public bool IsDeleted { get; set; }
+
+        /// <summary>
+        /// For custom setter
+        /// </summary>
+        private int _level;
+
+        /// <summary>
+        /// Level is a representation of how much accumulated experience a character has earned.
+        /// </summary>
+        public int Level 
+        {
+            get { return _level; }
+            set
+            {
+                if (value > 90)
+                {
+                    _level = 90;
+                }
+                else if (value <= 0)
+                {
+                    _level = 1;
+                }
+                else
+                {
+                    _level = value;
+                }
+            }
+        }
     }
 }
