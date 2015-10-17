@@ -23,6 +23,6 @@ namespace CharacterManager.Models
         /// <summary>
         /// The character class represents the scope of their skills and abilities. Think Mage, Warlock, and Panda Bear Wrestlers.
         /// </summary>
-        public virtual Class Class { get;set;}
+        public virtual Class Class { get;set; }
     }
 }
