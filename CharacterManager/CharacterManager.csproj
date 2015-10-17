@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\Faction.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="SwaggerConfig.cs" />
     <Compile Include="WebApiConfig.cs" />

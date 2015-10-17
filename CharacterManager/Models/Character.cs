@@ -24,5 +24,10 @@ namespace CharacterManager.Models
         /// The character class represents the scope of their skills and abilities. Think Mage, Warlock, and Panda Bear Wrestlers.
         /// </summary>
         public virtual Class Class { get;set; }
+
+        /// <summary>
+        /// A loosely related group of races joined in fighting toward mutually beneficials goals of varying degrees.
+        /// </summary>
+        public virtual Faction Faction { get; set; }
     }
 }
