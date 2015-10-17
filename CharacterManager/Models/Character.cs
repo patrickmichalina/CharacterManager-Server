@@ -10,10 +10,22 @@ namespace CharacterManager.Models
     /// </summary>
     public class Character
     {
+        // getter/setter overrides
+        private int _level;
+        private string _name;
+
         /// <summary>
         /// The character's name. Preferably mystical and esoteric.
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if(string.IsNullOrEmpty(value)) throw new ArgumentNullException();
+                _name = value;
+            }
+        }
 
         /// <summary>
         /// A character's race is the most tangible and real aspect to their being.
@@ -36,10 +48,7 @@ namespace CharacterManager.Models
         /// </summary>
         public bool IsDeleted { get; set; }
 
-        /// <summary>
-        /// For custom setter
-        /// </summary>
-        private int _level;
+        
 
         /// <summary>
         /// Level is a representation of how much accumulated experience a character has earned.

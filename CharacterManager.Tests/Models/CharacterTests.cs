@@ -43,24 +43,61 @@ namespace CharacterManager.Tests
         [TestMethod]
         public void ShouldNeverLetLevelAbove90()
         {
+            // reset after test to original value
+            var originalValue = _systemUnderTest.Level;
+
             _systemUnderTest.Level = 100;
+
             Assert.AreEqual(90, _systemUnderTest.Level);
+
+            _systemUnderTest.Level = originalValue;
         }
 
         [TestMethod]
         public void ShouldNeverLetLevelBelow1()
         {
+            // reset after test to original value
+            var originalValue = _systemUnderTest.Level;
+
             _systemUnderTest.Level = 0;
             Assert.AreEqual(1, _systemUnderTest.Level);
 
             _systemUnderTest.Level = -1;
             Assert.AreEqual(1, _systemUnderTest.Level);
+
+            _systemUnderTest.Level = originalValue;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ShouldThrowArgumentNullExceptionIfNameIsSetEmpty()
+        {
+            // reset after test to original value
+            var originalValue = _systemUnderTest.Name;
+
+            try
+            {
+                _systemUnderTest.Name = "";
+                Assert.Fail("Should have thrown an exception ! !");
+            }
+            catch (Exception e)
+            {
+                Console.Out.WriteLine("AH ha! caught it ! :) : " + e);
+                throw;
+            }
+            finally
+            {
+                _systemUnderTest.Name = originalValue;
+            }
         }
 
         [TestMethod]
         public void ModelShouldValidate()
         {
-            throw new NotImplementedException();
+            if (!_systemUnderTest.IsValid())
+            {
+                Assert.Fail("Model was defined as valid, check IsValid() function.");
+            }
         }        
     }
 }
