@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using CharacterManager.Context.Configurations;
+using System.Data.Entity;
 
 namespace CharacterManager.Models
 {
@@ -26,5 +27,18 @@ namespace CharacterManager.Models
         /// Faction entities in the database
         /// </summary>
         public virtual DbSet<Faction> Factions { get; set; }
+
+        /// <summary>
+        /// Construct the database.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new CharacterTypeConfiguration());
+            modelBuilder.Configurations.Add(new ClassTypeConfiguration());
+            modelBuilder.Configurations.Add(new FactionTypeConfiguration());
+            modelBuilder.Configurations.Add(new RaceTypeConfiguration());
+        }
     }
 }

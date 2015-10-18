@@ -118,6 +118,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\Configurations\CharacterTypeConfiguration.cs" />
+    <Compile Include="Context\Configurations\ClassTypeConfiguration.cs" />
+    <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
+    <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
@@ -131,7 +135,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Context\Configurations\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
