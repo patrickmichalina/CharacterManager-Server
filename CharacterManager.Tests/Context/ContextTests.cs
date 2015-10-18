@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CharacterManager.Models;
 
 namespace CharacterManager.Tests.Context
 {
@@ -19,6 +18,12 @@ namespace CharacterManager.Tests.Context
         public static void AfterEachTest()
         {
             _systemUnderTest = null;
+        }
+
+        [TestMethod]
+        public void PropertiesShouldExists()
+        {
+            var test = typeof(CharacterManager.Models.Context).GetProperty("Characters");
         }
 
         [TestMethod]

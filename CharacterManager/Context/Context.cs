@@ -10,6 +10,21 @@ namespace CharacterManager.Models
         /// <summary>
         /// Character entities in the database
         /// </summary>
-        public DbSet<Character> Characters { get; set; }
+        public virtual DbSet<Character> Characters { get; set; }
+
+        /// <summary>
+        /// Class entities in the database
+        /// </summary>
+        public virtual DbSet<Class> Classes { get; set; }
+
+        /// <summary>
+        /// Race entities in the database
+        /// </summary>
+        public virtual DbSet<Race> Races { get; set; }
+
+        /// <summary>
+        /// Faction entities in the database
+        /// </summary>
+        public virtual DbSet<Faction> Factions { get; set; }
     }
 }
