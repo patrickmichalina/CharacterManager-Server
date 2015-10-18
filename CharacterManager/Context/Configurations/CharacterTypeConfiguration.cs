@@ -13,7 +13,12 @@ namespace CharacterManager.Context.Configurations
         /// </summary>
         public CharacterTypeConfiguration()
         {
-
+            HasKey(character => character.Name);
+            Property(character => character.Name).HasMaxLength(15).IsRequired();
+            Property(character => character.Level).IsRequired();
+            HasRequired(character => character.Race);
+            HasRequired(character => character.Faction);
+            HasRequired(character => character.Class);
         }
     }
 }
