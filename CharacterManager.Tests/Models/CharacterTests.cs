@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CharacterManager.Models;
 
-namespace CharacterManager.Tests
+namespace CharacterManager.Tests.Models
 {
     [TestClass]
     public class CharacterTests
