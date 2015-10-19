@@ -124,6 +124,7 @@
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
     <Compile Include="Models\Faction.cs" />
