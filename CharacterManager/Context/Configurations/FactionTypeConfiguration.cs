@@ -13,7 +13,9 @@ namespace CharacterManager.Context.Configurations
         /// </summary>
         public FactionTypeConfiguration()
         {
-            
+            HasKey(faction => faction.Name);
+            Property(faction => faction.Name).IsRequired().HasMaxLength(20);
+            HasMany(faction => faction.Characters);
         }
     }
 }

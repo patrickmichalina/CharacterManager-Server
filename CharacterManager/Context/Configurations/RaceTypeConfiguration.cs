@@ -13,7 +13,8 @@ namespace CharacterManager.Context.Configurations
         /// </summary>
         public RaceTypeConfiguration()
         {
-            
+            HasKey(race => race.Name);
+            Property(race => race.Name).IsRequired().HasMaxLength(20);
         }
     }
 }
