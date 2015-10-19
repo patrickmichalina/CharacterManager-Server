@@ -129,6 +129,7 @@
       <DependentUpon>201510190041412_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\FactionInitializer.cs" />
     <Compile Include="Migrations\SeedData\RaceInitializer.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />

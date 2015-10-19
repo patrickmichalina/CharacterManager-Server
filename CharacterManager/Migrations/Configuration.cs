@@ -1,9 +1,12 @@
 using static CharacterManager.Migrations.SeedData.RaceInitializer;
+using static CharacterManager.Migrations.SeedData.FactionInitializer;
+
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Collections;
 using CharacterManager.Models;
 using System;
 using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Linq;
 
 namespace CharacterManager.Migrations
 {
@@ -16,14 +19,17 @@ namespace CharacterManager.Migrations
 
         protected override void Seed(Models.Context context)
         {
-            var races = CreateRaces();
-
             // insert basic data
             foreach(var race in CreateRaces())
             {
                 context.Races.AddOrUpdate(r => r.Name, race);
             }
-           
+
+            foreach (var faction in CreateFactions())
+            {
+                context.Factions.AddOrUpdate(f => f.Name, faction);
+            }
+
             context.SaveChanges();
         }
     }
