@@ -16,9 +16,9 @@ namespace CharacterManager.Context.Configurations
             HasKey(character => character.Name);
             Property(character => character.Name).HasMaxLength(15).IsRequired();
             Property(character => character.Level).IsRequired();
-            HasRequired(character => character.Race);
-            HasRequired(character => character.Faction);
-            HasRequired(character => character.Class);
+            HasRequired(character => character.Race).WithMany(race => race.Characters).HasForeignKey(character => character.RaceId);
+            HasRequired(character => character.Faction).WithMany(faction => faction.Characters).HasForeignKey(character => character.FactionId);
+            HasRequired(character => character.Class).WithMany(@class => @class.Characters).HasForeignKey(character => character.ClassId);
         }
     }
 }

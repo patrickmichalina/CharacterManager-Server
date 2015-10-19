@@ -6,12 +6,12 @@ namespace CharacterManager.Tests.Context
     [TestClass]
     public class ContextTests
     {
-        private static CharacterManager.Models.Context _systemUnderTest;
+        private static CharacterManager.Models.ApplicationContext _systemUnderTest;
 
         [ClassInitialize]
         public static void BeforeEachTest(TestContext testContext)
         {
-            _systemUnderTest = new CharacterManager.Models.Context();
+            _systemUnderTest = new CharacterManager.Models.ApplicationContext();
         }
 
         [ClassCleanup]
@@ -23,7 +23,7 @@ namespace CharacterManager.Tests.Context
         [TestMethod]
         public void PropertiesShouldExists()
         {
-            var test = typeof(CharacterManager.Models.Context).GetProperty("Characters");
+            var test = typeof(CharacterManager.Models.ApplicationContext).GetProperty("Characters");
         }
 
         [TestMethod]

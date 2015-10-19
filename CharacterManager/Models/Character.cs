@@ -19,7 +19,7 @@ namespace CharacterManager.Models
             get { return _name; }
             set
             {
-                if(string.IsNullOrEmpty(value)) throw new ArgumentNullException();
+                if (string.IsNullOrEmpty(value)) throw new ArgumentNullException();
                 _name = value;
             }
         }
@@ -31,14 +31,29 @@ namespace CharacterManager.Models
         public virtual Race Race { get; set; }
 
         /// <summary>
+        /// Id of the race object
+        /// </summary>
+        public string RaceId { get; set; }
+
+        /// <summary>
         /// The character class represents the scope of their skills and abilities. Think Mage, Warlock, and Panda Bear Wrestlers.
         /// </summary>
-        public virtual Class Class { get;set; }
+        public virtual Class Class { get; set; }
+
+        /// <summary>
+        /// Id of the class object
+        /// </summary>
+        public string ClassId { get; set; }
 
         /// <summary>
         /// A loosely related group of races joined in fighting toward mutually beneficials goals of varying degrees.
         /// </summary>
         public virtual Faction Faction { get; set; }
+
+        /// <summary>
+        /// Id of the faction object
+        /// </summary>
+        public string FactionId { get; set; }
 
         /// <summary>
         /// Logical delete allows for deleting/undeleting of characters.

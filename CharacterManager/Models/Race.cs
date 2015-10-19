@@ -1,4 +1,6 @@
-﻿namespace CharacterManager.Models
+﻿using System.Collections.Generic;
+
+namespace CharacterManager.Models
 {
     /// <summary>
     /// In the World of Warcraft universe there are but two races... Or are there...?
@@ -19,5 +21,7 @@
         /// A url pointing to an arbitrary image of the race
         /// </summary>
         public string ImageUrl { get; set; }
+
+        public virtual ICollection<Character> Characters { get; set; }
     }
 }

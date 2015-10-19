@@ -122,15 +122,20 @@
     <Compile Include="Context\Configurations\ClassTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
-    <Compile Include="Context\Context.cs" />
+    <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Migrations\201510190041412_Initial.cs" />
     <Compile Include="Migrations\201510190041412_Initial.Designer.cs">
       <DependentUpon>201510190041412_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510190703293_AddedForeignKeys.cs" />
+    <Compile Include="Migrations\201510190703293_AddedForeignKeys.Designer.cs">
+      <DependentUpon>201510190703293_AddedForeignKeys.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\ClassInitializer.cs" />
     <Compile Include="Migrations\SeedData\FactionInitializer.cs" />
+    <Compile Include="Migrations\SeedData\CharacterInitializer.cs" />
     <Compile Include="Migrations\SeedData\RaceInitializer.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
@@ -149,6 +154,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201510190041412_Initial.resx">
       <DependentUpon>201510190041412_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510190703293_AddedForeignKeys.resx">
+      <DependentUpon>201510190703293_AddedForeignKeys.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

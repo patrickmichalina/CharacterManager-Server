@@ -6,7 +6,7 @@ namespace CharacterManager.Models
     /// <summary>
     /// Entity Framework code first mappings of models to sql store
     /// </summary>
-    public class Context : DbContext
+    public class ApplicationContext : DbContext
     {
         /// <summary>
         /// Character entities in the database

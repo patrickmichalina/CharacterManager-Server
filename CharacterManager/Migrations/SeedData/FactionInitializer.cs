@@ -19,7 +19,7 @@ namespace CharacterManager.Migrations.SeedData
             {
                 return new List<Faction>
                 {
-                    new Faction { Name = "Horder" },
+                    new Faction { Name = "Horde" },
                     new Faction { Name = "Alliance" }
                 };
             }

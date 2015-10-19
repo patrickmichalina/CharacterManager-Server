@@ -13,12 +13,12 @@ namespace CharacterManager.Controllers
     /// </summary>
     public class CharactersController : ApiController
     {
-        private readonly Models.Context _context = new Models.Context();
+        private readonly Models.ApplicationContext _context = new Models.ApplicationContext();
 
         /// <summary>
         /// Get a list of all Characters
         /// </summary>
-        /// <returns></returns>
+        /// <param name="name">The character's name</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(IEnumerable<Character>))]
@@ -48,7 +48,7 @@ namespace CharacterManager.Controllers
         /// <summary>
         /// Delete a Character
         /// </summary>
-        /// <returns></returns>
+        /// <param name="name">The character's name</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
@@ -70,19 +70,20 @@ namespace CharacterManager.Controllers
         /// <summary>
         /// Create a Character
         /// </summary>
-        /// <returns></returns>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
         public async Task<IHttpActionResult> Post(Character character)
         {
+            if (!ModelState.IsValid) return BadRequest("Make sure the model is valid");
+
+
             throw new NotImplementedException();
         }
 
         /// <summary>
         /// Update a Character
         /// </summary>
-        /// <returns></returns>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
@@ -94,7 +95,6 @@ namespace CharacterManager.Controllers
         /// <summary>
         /// Update a Character (delta request)
         /// </summary>
-        /// <returns></returns>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
