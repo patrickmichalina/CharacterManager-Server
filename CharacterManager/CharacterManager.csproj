@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201510190724381_AddedIdentity.Designer.cs">
       <DependentUpon>201510190724381_AddedIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510190732302_AddedUserToCharacter.cs" />
+    <Compile Include="Migrations\201510190732302_AddedUserToCharacter.Designer.cs">
+      <DependentUpon>201510190732302_AddedUserToCharacter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\ClassInitializer.cs" />
     <Compile Include="Migrations\SeedData\FactionInitializer.cs" />
@@ -172,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510190724381_AddedIdentity.resx">
       <DependentUpon>201510190724381_AddedIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510190732302_AddedUserToCharacter.resx">
+      <DependentUpon>201510190732302_AddedUserToCharacter.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

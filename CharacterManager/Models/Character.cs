@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace CharacterManager.Models
 {
@@ -54,6 +55,11 @@ namespace CharacterManager.Models
         /// Id of the faction object
         /// </summary>
         public string FactionId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual IdentityUser User { get; set; }
 
         /// <summary>
         /// Logical delete allows for deleting/undeleting of characters.
