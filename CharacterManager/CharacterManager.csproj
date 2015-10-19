@@ -124,6 +124,10 @@
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\Context.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
+    <Compile Include="Migrations\201510190041412_Initial.cs" />
+    <Compile Include="Migrations\201510190041412_Initial.Designer.cs">
+      <DependentUpon>201510190041412_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Class.cs" />
@@ -136,7 +140,14 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510190041412_Initial.resx">
+      <DependentUpon>201510190041412_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
