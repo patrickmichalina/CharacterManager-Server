@@ -1,4 +1,5 @@
 ﻿using CharacterManager.Context.Configurations;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
 namespace CharacterManager.Models
@@ -6,8 +7,13 @@ namespace CharacterManager.Models
     /// <summary>
     /// Entity Framework code first mappings of models to sql store
     /// </summary>
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext
     {
+        /// <summary>
+        /// Constructor for our application database
+        /// </summary>
+        public ApplicationContext() : base("CharacterManager") { }
+        
         /// <summary>
         /// Character entities in the database
         /// </summary>
