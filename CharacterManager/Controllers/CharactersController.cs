@@ -13,7 +13,7 @@ namespace CharacterManager.Controllers
     /// </summary>
     public class CharactersController : ApiController
     {
-        private readonly Models.ApplicationContext _context = new Models.ApplicationContext();
+        private readonly ApplicationContext _context = new ApplicationContext();
 
         /// <summary>
         /// Get a list of all Characters

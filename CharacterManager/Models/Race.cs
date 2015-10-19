@@ -22,6 +22,9 @@ namespace CharacterManager.Models
         /// </summary>
         public string ImageUrl { get; set; }
 
+        /// <summary>
+        /// Characters belonging to this race
+        /// </summary>
         public virtual ICollection<Character> Characters { get; set; }
     }
 }

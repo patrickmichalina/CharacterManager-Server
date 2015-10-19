@@ -1,10 +1,15 @@
 namespace CharacterManager.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
+    /// <summary>
+    /// Migration
+    /// </summary>
     public partial class AddedForeignKeys : DbMigration
     {
+        /// <summary>
+        /// Upsert
+        /// </summary>
         public override void Up()
         {
             RenameColumn(table: "dbo.Characters", name: "Class_Name", newName: "ClassId");
@@ -15,6 +20,9 @@ namespace CharacterManager.Migrations
             RenameIndex(table: "dbo.Characters", name: "IX_Faction_Name", newName: "IX_FactionId");
         }
         
+        /// <summary>
+        /// Down
+        /// </summary>
         public override void Down()
         {
             RenameIndex(table: "dbo.Characters", name: "IX_FactionId", newName: "IX_Faction_Name");

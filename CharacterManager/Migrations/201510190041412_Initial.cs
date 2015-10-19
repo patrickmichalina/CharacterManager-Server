@@ -2,6 +2,9 @@ namespace CharacterManager.Migrations
 {
     using System.Data.Entity.Migrations;
     
+    /// <summary>
+    /// Migration
+    /// </summary>
     public partial class Initial : DbMigration
     {
         /// <summary>
