@@ -13,7 +13,8 @@ namespace CharacterManager.Context.Configurations
         /// </summary>
         public ClassTypeConfiguration()
         {
-            
+            HasKey(@class => @class.Name);
+            Property(@class => @class.Name).IsRequired().HasMaxLength(20);
         }
     }
 }
