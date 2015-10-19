@@ -1,7 +1,6 @@
 ﻿using CharacterManager.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CharacterManager.Migrations.SeedData
 {
@@ -37,6 +36,24 @@ namespace CharacterManager.Migrations.SeedData
                         RaceId = "Orc",
                         Level = 89,
                         IsDeleted = true
+                    },
+                    new Character
+                    {
+                        Name = "Falcor",
+                        ClassId = "Warrior",
+                        FactionId = "Alliance",
+                        RaceId = "Human",
+                        Level = 50,
+                        IsDeleted = false
+                    },
+                    new Character
+                    {
+                        Name = "Fanboy",
+                        ClassId = "Mage",
+                        FactionId = "Horde",
+                        RaceId = "Blood Elf",
+                        Level = 89,
+                        IsDeleted = false
                     }
                 };
             }
