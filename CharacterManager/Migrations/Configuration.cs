@@ -1,5 +1,6 @@
 using static CharacterManager.Migrations.SeedData.RaceInitializer;
 using static CharacterManager.Migrations.SeedData.FactionInitializer;
+using static CharacterManager.Migrations.SeedData.ClassInitializer;
 
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -28,6 +29,11 @@ namespace CharacterManager.Migrations
             foreach (var faction in CreateFactions())
             {
                 context.Factions.AddOrUpdate(f => f.Name, faction);
+            }
+
+            foreach (var @class in CreateClasses())
+            {
+                context.Classes.AddOrUpdate(c => c.Name, @class);
             }
 
             context.SaveChanges();
