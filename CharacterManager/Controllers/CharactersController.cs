@@ -1,6 +1,7 @@
 ﻿using CharacterManager.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -12,6 +13,8 @@ namespace CharacterManager.Controllers
     /// </summary>
     public class CharactersController : ApiController
     {
+        private readonly Models.Context _context = new Models.Context();
+
         /// <summary>
         /// Get a list of all Characters
         /// </summary>
@@ -19,14 +22,26 @@ namespace CharacterManager.Controllers
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(IEnumerable<Character>))]
-        public async Task<IHttpActionResult> Get(string name = null)
+        public IHttpActionResult Get(string name = null)
         {
-            if(!string.IsNullOrEmpty(name))
+            try
             {
-                throw new NotImplementedException();
-            } else
+                if (!string.IsNullOrEmpty(name))
+                {
+                    var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
+
+                    if (_character == null) return NotFound();
+
+                    return Ok(_character);
+                }
+                else
+                {
+                    return Ok(_context.Characters);
+                }
+            }
+            catch
             {
-                throw new NotImplementedException();
+                return InternalServerError();
             }
         }
 
@@ -39,7 +54,17 @@ namespace CharacterManager.Controllers
         [ResponseType(typeof(Character))]
         public async Task<IHttpActionResult> Delete(string name)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(name)) return BadRequest("Must supply an id");
+
+            var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
+
+            if (_character == null) return NotFound();
+
+            _context.Characters.Remove(_character);
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
 
         /// <summary>
