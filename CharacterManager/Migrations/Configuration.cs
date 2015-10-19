@@ -1,3 +1,5 @@
+using static CharacterManager.Migrations.SeedData.RaceInitializer;
+using CharacterManager.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
@@ -14,7 +16,15 @@ namespace CharacterManager.Migrations
 
         protected override void Seed(Models.Context context)
         {
-            
+            var races = CreateRaces();
+
+            // insert basic data
+            foreach(var race in CreateRaces())
+            {
+                context.Races.AddOrUpdate(r => r.Name, race);
+            }
+           
+            context.SaveChanges();
         }
     }
 }
