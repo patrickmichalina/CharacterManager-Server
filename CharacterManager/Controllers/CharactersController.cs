@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using AutoMapper;
+using CharacterManager.ViewModels;
 
 namespace CharacterManager.Controllers
 {
@@ -32,11 +34,11 @@ namespace CharacterManager.Controllers
 
                     if (_character == null) return NotFound();
 
-                    return Ok(_character);
+                    return Ok(Mapper.Map<CharacterViewModel>(_character));
                 }
                 else
                 {
-                    return Ok(_context.Characters);
+                    return Ok(Mapper.Map<IEnumerable<CharacterViewModel>>(_context.Characters));
                 }
             }
             catch

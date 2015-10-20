@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using AutoMapper;
+using CharacterManager.Profiles;
+using System.Web.Http;
 
 namespace CharacterManager
 {
@@ -15,6 +17,13 @@ namespace CharacterManager
         {
             // using default routing naming conventions
             Config.Routes.MapHttpRoute("DefaultRoute", "api/{controller}/{id}", new { id = RouteParameter.Optional });
+
+            // Configure Automapper
+            Mapper.Initialize(cfg => {
+                cfg.AddProfile<CharacterProfile>();
+            });
+
+            Mapper.AssertConfigurationIsValid();
         }
     }
 }
