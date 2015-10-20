@@ -3,8 +3,14 @@ namespace CharacterManager.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
+    /// <summary>
+    /// Migration
+    /// </summary>
     public partial class AddedIdentity : DbMigration
     {
+        /// <summary>
+        /// Up
+        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -77,6 +83,9 @@ namespace CharacterManager.Migrations
             
         }
         
+        /// <summary>
+        /// Down
+        /// </summary>
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
