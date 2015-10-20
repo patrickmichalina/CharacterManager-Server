@@ -144,6 +144,7 @@
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
+    <Compile Include="Models\Repository.cs" />
     <Compile Include="Profiles\CharacterProfile.cs" />
     <Compile Include="Migrations\201510190041412_Initial.cs" />
     <Compile Include="Migrations\201510190041412_Initial.Designer.cs">

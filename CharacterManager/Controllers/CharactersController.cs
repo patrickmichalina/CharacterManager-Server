@@ -1,11 +1,9 @@
 ﻿using CharacterManager.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using AutoMapper;
 using CharacterManager.ViewModels;
 
 namespace CharacterManager.Controllers
@@ -15,7 +13,7 @@ namespace CharacterManager.Controllers
     /// </summary>
     public class CharactersController : ApiController
     {
-        private readonly ApplicationContext _context = new ApplicationContext();
+        private readonly Repository _repository = new Repository();
 
         /// <summary>
         /// Get a list of all Characters
@@ -23,22 +21,22 @@ namespace CharacterManager.Controllers
         /// <param name="name">The character's name</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
-        [ResponseType(typeof(IEnumerable<Character>))]
+        [ResponseType(typeof(IEnumerable<CharacterViewModel>))]
         public IHttpActionResult Get(string name = null)
         {
             try
             {
                 if (!string.IsNullOrEmpty(name))
                 {
-                    var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
+                    var _character = _repository.GetCharacter(name);
 
                     if (_character == null) return NotFound();
 
-                    return Ok(Mapper.Map<CharacterViewModel>(_character));
+                    return Ok(_character);
                 }
                 else
                 {
-                    return Ok(Mapper.Map<IEnumerable<CharacterViewModel>>(_context.Characters));
+                    return Ok(_repository.GetCharacters());
                 }
             }
             catch
@@ -51,20 +49,17 @@ namespace CharacterManager.Controllers
         /// Delete a Character
         /// </summary>
         /// <param name="name">The character's name</param>
+        /// <param name="isDeleted">Set deleted flag</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
-        public async Task<IHttpActionResult> Delete(string name)
+        public IHttpActionResult Delete(string name, bool isDeleted)
         {
             if (string.IsNullOrEmpty(name)) return BadRequest("Must supply an id");
 
-            var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
+            var _character = _repository.DeleteCharacter(name, isDeleted);
 
-            if (_character == null) return NotFound();
-
-            _context.Characters.Remove(_character);
-
-            await _context.SaveChangesAsync();
+            if (_character == 0) return NotFound();
 
             return Ok();
         }

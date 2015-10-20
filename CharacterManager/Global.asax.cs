@@ -24,7 +24,7 @@ namespace CharacterManager
             // migrate to latest database schema and seed sample data (if both are set based on app settings)
             MigrateDatabase();
 
-            // CORS
+            // Enable CORS
             GlobalConfiguration.Configuration.EnableCors(new EnableCorsAttribute("*", "*", "*"));
         }
 
