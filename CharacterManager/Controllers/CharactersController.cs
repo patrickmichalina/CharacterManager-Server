@@ -64,21 +64,7 @@ namespace CharacterManager.Controllers
             return Ok();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        [HttpPost]
-        [ActionName("Undelete")]
-        [AcceptVerbs("POST")]
-        [ResponseType(typeof(bool))]
-        [Route("api/Characters/Undelete")]
-        public IHttpActionResult Undelete()
-        {
-            return Ok();
-            // Code here...
-        }
+        
 
         /// <summary>
         /// Create a Character
