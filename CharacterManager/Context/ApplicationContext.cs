@@ -13,7 +13,7 @@ namespace CharacterManager.Models
         /// <summary>
         /// Constructor for our application database
         /// </summary>
-        public ApplicationContext() : base("CharacterManager") { }
+        public ApplicationContext() : base("name=CharacterManagerContext") { }
         
         /// <summary>
         /// Character entities in the database
