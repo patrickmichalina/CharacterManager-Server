@@ -1,13 +1,14 @@
 ﻿using CharacterManager.Context.Configurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using TrackerEnabledDbContext.Identity;
 
 namespace CharacterManager.Models
 {
     /// <summary>
     /// Entity Framework code first mappings of models to sql store
     /// </summary>
-    public class ApplicationContext : IdentityDbContext
+    public class ApplicationContext : TrackerIdentityContext<IdentityUser>
     {
         /// <summary>
         /// Constructor for our application database

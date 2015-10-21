@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework.MappingAPI, Version=6.1.0.9, Culture=neutral, PublicKeyToken=7ee2e825d201459e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.MappingAPI.6.1.0.9\lib\net45\EntityFramework.MappingAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
@@ -118,6 +122,14 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="TrackerEnabledDbContext.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=4f92af0b908c4a0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackerEnabledDbContext.Common.3.1.0\lib\net45\TrackerEnabledDbContext.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TrackerEnabledDbContext.Identity, Version=3.1.0.0, Culture=neutral, PublicKeyToken=4f92af0b908c4a0a, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackerEnabledDbContext.Identity.3.1.0\lib\net45\TrackerEnabledDbContext.Identity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
@@ -157,6 +169,10 @@
     <Compile Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.cs" />
     <Compile Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.Designer.cs">
       <DependentUpon>201510210503558_InvalidRacialFactionTypeMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510210715598_TrackerEnabledContext.cs" />
+    <Compile Include="Migrations\201510210715598_TrackerEnabledContext.Designer.cs">
+      <DependentUpon>201510210715598_TrackerEnabledContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\SeedData\InvalidRacialFactionInitializer.cs" />
     <Compile Include="Migrations\SeedData\InvalidRacialClassInitializer.cs" />
@@ -221,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.resx">
       <DependentUpon>201510210503558_InvalidRacialFactionTypeMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510210715598_TrackerEnabledContext.resx">
+      <DependentUpon>201510210715598_TrackerEnabledContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

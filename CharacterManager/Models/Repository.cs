@@ -11,6 +11,7 @@ namespace CharacterManager.Models
     public class Repository
     {
         private readonly ApplicationContext _context = new ApplicationContext();
+        private readonly string Username = HttpContext.Current.User.Identity.Name;
 
         /// <summary>
         /// List of codes returned when trying to create a new character
@@ -99,7 +100,7 @@ namespace CharacterManager.Models
 
             _character.IsDeleted = true;
 
-            return _context.SaveChanges();
+            return _context.SaveChanges(Username);
         }
 
         /// <summary>
@@ -115,7 +116,7 @@ namespace CharacterManager.Models
 
             _character.IsDeleted = false;
 
-            return _context.SaveChanges();
+            return _context.SaveChanges(Username);
         }
 
         /// <summary>
@@ -132,7 +133,7 @@ namespace CharacterManager.Models
             if (statusCode == CharacterCreationStatusCode.Created)
             {
                 _context.Characters.Add(character);
-                _context.SaveChanges();
+                _context.SaveChanges(Username);
             }
 
             return statusCode;
@@ -221,7 +222,7 @@ namespace CharacterManager.Models
 
             if (character.ClassId == "Death Knight")
             {
-                if (!CanBeCreateKnight(HttpContext.Current.User.Identity.Name)) return CharacterCreationStatusCode.UserLevelRequirementsNotMet;
+                if (!CanBeCreateKnight(Username)) return CharacterCreationStatusCode.UserLevelRequirementsNotMet;
             }
 
             return CharacterCreationStatusCode.Created;
