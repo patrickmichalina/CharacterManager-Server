@@ -158,6 +158,7 @@
     <Compile Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.Designer.cs">
       <DependentUpon>201510210503558_InvalidRacialFactionTypeMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\SeedData\InvalidRacialFactionInitializer.cs" />
     <Compile Include="Migrations\SeedData\InvalidRacialClassInitializer.cs" />
     <Compile Include="Models\InvalidRacialFaction.cs" />
     <Compile Include="Models\Repository.cs" />
