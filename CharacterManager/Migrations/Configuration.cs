@@ -3,6 +3,7 @@ using static CharacterManager.Migrations.SeedData.FactionInitializer;
 using static CharacterManager.Migrations.SeedData.ClassInitializer;
 using static CharacterManager.Migrations.SeedData.CharacterInitializer;
 using static CharacterManager.Migrations.SeedData.InvalidRacialClassInitializer;
+using static CharacterManager.Migrations.SeedData.InvalidRacialFactionInitializer;
 using System.Data.Entity.Migrations;
 using CharacterManager.Models;
 
@@ -39,6 +40,12 @@ namespace CharacterManager.Migrations
             foreach (var _invalidRacialClass in CreateInvalidRacialClassInitializer())
             {
                 context.InvalidRacialClasses.AddOrUpdate(_invalidRacialClass);
+            }
+
+            // create list of prohibited race/faction combinations
+            foreach (var _invalidRacialFaction in CreateInvalidRacialFactionInitializer())
+            {
+                context.InvalidRacialFactions.AddOrUpdate(_invalidRacialFaction);
             }
 
             // create demo characters
