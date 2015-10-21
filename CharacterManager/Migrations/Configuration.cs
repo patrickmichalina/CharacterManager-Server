@@ -55,7 +55,7 @@ namespace CharacterManager.Migrations
             }
 
             // persist to database
-            context.SaveChanges();
+            context.SaveChanges("SYSTEM-SEED");
         }
     }
 }
