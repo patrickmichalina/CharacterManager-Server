@@ -13,7 +13,7 @@ namespace CharacterManager.Models
         private readonly ApplicationContext _context = new ApplicationContext();
 
         /// <summary>
-        /// 
+        /// List of codes returned when trying to create a new character
         /// </summary>
         public enum CharacterCreationStatusCode
         {
@@ -27,8 +27,19 @@ namespace CharacterManager.Models
             /// </summary>
             LevelOutOfBound,
 
+            /// <summary>
+            /// Faction is not valid
+            /// </summary>
             FactionDoesNotExist,
+
+            /// <summary>
+            /// Race is not valid
+            /// </summary>
             RaceDoesNotExist,
+
+            /// <summary>
+            /// Class is not valid
+            /// </summary>
             ClassDoesNotExist,
 
             /// <summary>
@@ -107,6 +118,11 @@ namespace CharacterManager.Models
             return _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Attempts to create a new character from the client input
+        /// </summary>
+        /// <param name="characterViewModel"></param>
+        /// <returns></returns>
         public CharacterCreationStatusCode CreateCharacter(CharacterViewModel characterViewModel)
         {
             var character = AutoMapper.Mapper.Map<Character>(characterViewModel);
