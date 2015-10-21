@@ -30,6 +30,10 @@ namespace CharacterManager
 
             // Track entities for audit logs
             GlobalTrackingConfig.Enabled = true;
+
+            // JSON
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new System.Net.Http.Formatting.JsonMediaTypeFormatter());
         }
 
         /// <summary>
