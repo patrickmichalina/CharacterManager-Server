@@ -31,17 +31,32 @@ namespace CharacterManager.Models
         }
         
         /// <summary>
-        /// Delete a character from the database - this is actually only a logical delete
+        /// Delete a character from the database - this is actually only a logical delete (record remains in db)
         /// </summary>
         /// <param name="name"></param>
-        /// <param name="isDeleted"></param>
-        public int DeleteCharacter(string name, bool isDeleted)
+        public int DeleteCharacter(string name)
         {
             var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
 
-            if (_character == null) return 0 ;
+            if (_character == null) return 0;
 
-            _character.IsDeleted = isDeleted;
+            _character.IsDeleted = true;
+
+            return _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Restore a character (change delete flag) from the database.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public int RestoreCharacter(string name)
+        {
+            var _character = _context.Characters.SingleOrDefault(character => character.Name == name);
+
+            if (_character == null) return 0;
+
+            _character.IsDeleted = false;
 
             return _context.SaveChanges();
         }

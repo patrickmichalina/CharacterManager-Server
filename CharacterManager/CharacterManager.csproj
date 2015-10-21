@@ -140,11 +140,17 @@
   <ItemGroup>
     <Compile Include="Context\Configurations\CharacterTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\ClassTypeConfiguration.cs" />
+    <Compile Include="Context\Configurations\ValidRacialClassTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
+    <Compile Include="Migrations\201510210441533_ValidRacialClasses.cs" />
+    <Compile Include="Migrations\201510210441533_ValidRacialClasses.Designer.cs">
+      <DependentUpon>201510210441533_ValidRacialClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\ValidRacialClass.cs" />
     <Compile Include="Profiles\CharacterProfile.cs" />
     <Compile Include="Migrations\201510190041412_Initial.cs" />
     <Compile Include="Migrations\201510190041412_Initial.Designer.cs">
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510190732302_AddedUserToCharacter.resx">
       <DependentUpon>201510190732302_AddedUserToCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510210441533_ValidRacialClasses.resx">
+      <DependentUpon>201510210441533_ValidRacialClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -26,5 +26,7 @@ namespace CharacterManager.Models
         /// Characters belonging to this race
         /// </summary>
         public virtual ICollection<Character> Characters { get; set; }
+
+        public virtual ICollection<ValidRacialClass> ValidRacialClasses { get; set; }
     }
 }

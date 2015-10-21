@@ -49,17 +49,16 @@ namespace CharacterManager.Controllers
         /// Delete a Character
         /// </summary>
         /// <param name="name">The character's name</param>
-        /// <param name="isDeleted">Set deleted flag</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
-        public IHttpActionResult Delete(string name, bool isDeleted)
+        public IHttpActionResult Delete(string name)
         {
             if (string.IsNullOrEmpty(name)) return BadRequest("Must supply an id");
 
-            var _character = _repository.DeleteCharacter(name, isDeleted);
+            var _saveOperationResult = _repository.DeleteCharacter(name);
 
-            if (_character == 0) return NotFound();
+            if (_saveOperationResult == 0) return NotFound();
 
             return Ok();
         }

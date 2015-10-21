@@ -45,6 +45,7 @@ namespace CharacterManager.Models
             modelBuilder.Configurations.Add(new ClassTypeConfiguration());
             modelBuilder.Configurations.Add(new FactionTypeConfiguration());
             modelBuilder.Configurations.Add(new RaceTypeConfiguration());
+            modelBuilder.Configurations.Add(new ValidRacialClassTypeConfiguration());
         }
     }
 }
