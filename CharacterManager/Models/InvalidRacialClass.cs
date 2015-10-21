@@ -6,9 +6,9 @@ using System.Web;
 namespace CharacterManager.Models
 {
     /// <summary>
-    /// Race / Class combinations that are valid
+    /// Race / Class combinations that are invalid
     /// </summary>
-    public class ValidRacialClass
+    public class InvalidRacialClass
     {
         public virtual Class Class { get; set; }
 

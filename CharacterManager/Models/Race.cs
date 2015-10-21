@@ -27,6 +27,6 @@ namespace CharacterManager.Models
         /// </summary>
         public virtual ICollection<Character> Characters { get; set; }
 
-        public virtual ICollection<ValidRacialClass> ValidRacialClasses { get; set; }
+        public virtual ICollection<InvalidRacialClass> InvalidRacialClasses { get; set; }
     }
 }
