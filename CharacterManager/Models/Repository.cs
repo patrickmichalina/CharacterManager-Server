@@ -60,5 +60,27 @@ namespace CharacterManager.Models
 
             return _context.SaveChanges();
         }
+
+        /// <summary>
+        /// Checks to see if the new character has a valid race/faction mapping
+        /// </summary>
+        /// <param name="race">Race of the potential character</param>
+        /// <param name="faction">Faction of the potential character</param>
+        /// <returns></returns>
+        private bool CanJoinFaction(string race, string faction)
+        {
+            return !_context.InvalidRacialFactions.Any(rf => rf.FactionId == faction && rf.RaceId == race);
+        }
+
+        /// <summary>
+        /// Checks to see if the new character has a valid race/class mapping
+        /// </summary>
+        /// <param name="race"></param>
+        /// <param name="_class"></param>
+        /// <returns></returns>
+        private bool CanBeClass(string race, string _class)
+        {
+            return !_context.InvalidRacialClasses.Any(rf => rf.ClassId == _class && rf.RaceId == race);
+        }
     }
 }
