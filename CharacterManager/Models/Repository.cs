@@ -1,6 +1,7 @@
 ﻿using CharacterManager.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace CharacterManager.Models
 {
@@ -10,6 +11,51 @@ namespace CharacterManager.Models
     public class Repository
     {
         private readonly ApplicationContext _context = new ApplicationContext();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum CharacterCreationStatusCode
+        {
+            /// <summary>
+            /// Congratulations!
+            /// </summary>
+            Created,
+
+            /// <summary>
+            /// Level was out of range
+            /// </summary>
+            LevelOutOfBound,
+
+            FactionDoesNotExist,
+            RaceDoesNotExist,
+            ClassDoesNotExist,
+
+            /// <summary>
+            /// The user name is already chosen
+            /// </summary>
+            AlreadyExists,
+
+            /// <summary>
+            /// The selected race and faction were not compatible
+            /// </summary>
+            InvalidRaceFactionMapping,
+
+            /// <summary>
+            /// The selected race and class were not compatible
+            /// </summary>
+            InvalidRaceClassMapping,
+
+            /// <summary>
+            /// User doesn't have a high enough character to start a new one
+            /// </summary>
+            UserLevelRequirementsNotMet,
+
+            /// <summary>
+            /// Not yet defined model error
+            /// </summary>
+            UncaughtModelError
+        }
 
         /// <summary>
         /// Gets a character from the database and converts it to a view-model for the client
@@ -61,6 +107,21 @@ namespace CharacterManager.Models
             return _context.SaveChanges();
         }
 
+        public CharacterCreationStatusCode CreateCharacter(CharacterViewModel characterViewModel)
+        {
+            var character = AutoMapper.Mapper.Map<Character>(characterViewModel);
+
+            var statusCode = CanCreateCharacter(character);
+
+            if (statusCode == CharacterCreationStatusCode.Created)
+            {
+                _context.Characters.Add(character);
+                _context.SaveChanges();
+            }
+
+            return statusCode;
+        }
+
         /// <summary>
         /// Checks to see if the new character has a valid race/faction mapping
         /// </summary>
@@ -81,6 +142,73 @@ namespace CharacterManager.Models
         private bool CanBeClass(string race, string _class)
         {
             return !_context.InvalidRacialClasses.Any(rf => rf.ClassId == _class && rf.RaceId == race);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private bool CanBeCreateKnight(string user)
+        {
+            return _context.Characters.Where(character => character.User.UserName == user).Any(s => s.Level > 55);
+        }
+
+        private bool IsCharacterNameAlreadyTaken(string name)
+        {
+            return _context.Characters.Any(character => character.Name == name);
+        }
+
+        private bool SelectedClassExists(string name)
+        {
+            var results = _context.Classes.SingleOrDefault(c => c.Name == name);
+
+            return results != null ? true : false;
+        }
+
+        private bool SelectedRaceExists(string name)
+        {
+            var results = _context.Races.SingleOrDefault(c => c.Name == name);
+
+            return results != null ? true : false;
+        }
+
+        private bool SelectedFactionExists(string name)
+        {
+            var results = _context.Factions.SingleOrDefault(c => c.Name == name);
+
+            return results != null ? true : false;
+        }
+
+        /// <summary>
+        /// Checks if a new character has valid settings
+        /// </summary>
+        /// <param name="character">The potential character</param>
+        /// <returns></returns>
+        private CharacterCreationStatusCode CanCreateCharacter(Character character)
+        {
+            if (!SelectedClassExists(character.ClassId)) return CharacterCreationStatusCode.ClassDoesNotExist;
+
+            if (!SelectedRaceExists(character.RaceId)) return CharacterCreationStatusCode.RaceDoesNotExist;
+
+            if (!SelectedFactionExists(character.FactionId)) return CharacterCreationStatusCode.FactionDoesNotExist;
+
+            if (!character.LevelIsValid()) return CharacterCreationStatusCode.LevelOutOfBound;
+
+            if (!character.IsValid()) return CharacterCreationStatusCode.UncaughtModelError;
+
+            if (!CanBeClass(character.RaceId, character.ClassId)) return CharacterCreationStatusCode.InvalidRaceClassMapping;
+
+            if (!CanJoinFaction(character.RaceId, character.FactionId)) return CharacterCreationStatusCode.InvalidRaceFactionMapping;
+
+            if (IsCharacterNameAlreadyTaken(character.Name)) return CharacterCreationStatusCode.AlreadyExists;
+
+            if (character.ClassId == "Death Knight")
+            {
+                if (!CanBeCreateKnight(HttpContext.Current.User.Identity.Name)) return CharacterCreationStatusCode.UserLevelRequirementsNotMet;
+            }
+
+            return CharacterCreationStatusCode.Created;
         }
     }
 }

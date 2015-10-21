@@ -63,20 +63,21 @@ namespace CharacterManager.Controllers
             return Ok();
         }
 
-        
-
         /// <summary>
         /// Create a Character
         /// </summary>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
-        [ResponseType(typeof(Character))]
-        public async Task<IHttpActionResult> Post(Character character)
+        [ResponseType(typeof(CharacterViewModel))]
+        public async Task<IHttpActionResult> Post(CharacterViewModel characterViewModel)
         {
             if (!ModelState.IsValid) return BadRequest("Make sure the model is valid");
 
+            var result = _repository.CreateCharacter(characterViewModel);
 
-            throw new NotImplementedException();
+            if (result != Repository.CharacterCreationStatusCode.Created) return BadRequest(Enum.GetName(typeof(Repository.CharacterCreationStatusCode), result));
+
+            return Ok(result);
         }
 
         /// <summary>

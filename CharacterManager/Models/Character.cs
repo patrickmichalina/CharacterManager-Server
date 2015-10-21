@@ -90,16 +90,29 @@ namespace CharacterManager.Models
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public bool LevelIsValid()
+        {
+            if (Level >= 1 && Level <= 90)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        /// <summary>
         /// Validates model
         /// </summary>
         /// <returns></returns>
         public bool IsValid()
         {
-            if (Level <= 0 && Level >= 90) return false;
+            if (!LevelIsValid()) return false;
             if (string.IsNullOrEmpty(Name)) return false;
-            if (Race == null) return false;
-            if (Faction == null) return false;
-            if (Class == null) return false;
+            if (Race == null && string.IsNullOrEmpty(RaceId)) return false;
+            if (Faction == null && string.IsNullOrEmpty(FactionId)) return false;
+            if (Class == null && string.IsNullOrEmpty(ClassId)) return false;
 
             return true;
         }
