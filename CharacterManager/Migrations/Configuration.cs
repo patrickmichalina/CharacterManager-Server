@@ -8,7 +8,7 @@ using CharacterManager.Models;
 
 namespace CharacterManager.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Models.ApplicationContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationContext>
     {
         public Configuration()
         {
