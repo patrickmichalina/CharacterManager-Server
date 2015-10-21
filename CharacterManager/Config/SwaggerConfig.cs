@@ -2,6 +2,7 @@ using System.Web.Http;
 using WebActivatorEx;
 using CharacterManager;
 using Swashbuckle.Application;
+using System;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -102,7 +103,7 @@ namespace CharacterManager
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        c.IncludeXmlComments($@"{System.AppDomain.CurrentDomain.BaseDirectory}\bin\CharacterManager.XML");
+                        c.IncludeXmlComments(AppDomain.CurrentDomain.BaseDirectory + @"\bin\CharacterManager.XML");
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
