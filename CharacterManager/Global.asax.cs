@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using TrackerEnabledDbContext.Common.Configuration;
 
 namespace CharacterManager
 {
@@ -26,6 +27,9 @@ namespace CharacterManager
 
             // Enable CORS
             GlobalConfiguration.Configuration.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            // Track entities for audit logs
+            GlobalTrackingConfig.Enabled = true;
         }
 
         /// <summary>

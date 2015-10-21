@@ -35,8 +35,14 @@ namespace CharacterManager.Models
         /// </summary>
         public virtual DbSet<Faction> Factions { get; set; }
 
+        /// <summary>
+        /// Invalid racial class entities in the database
+        /// </summary>
         public virtual DbSet<InvalidRacialClass> InvalidRacialClasses { get; set; }
 
+        /// <summary>
+        /// Invalid racial factions entities in the database
+        /// </summary>
         public virtual DbSet<InvalidRacialFaction> InvalidRacialFactions { get; set; }
 
         /// <summary>
