@@ -75,16 +75,6 @@ IF /I "CharacterManager.sln" NEQ "" (
 
 powershell.exe -File f
 
-:: 2. Tests
-echo 2: Build and execute tests
-
-echo 2a: Build Unit Tests
-call :ExecuteCmd "%MSBUILD_PATH%" "%DEPLOYMENT_SOURCE%\CharacterManager.Tests\CharacterManager.Tests.csproj" /nologo /verbosity:m /t:Build /p:Configuration=Debug
-
-echo 2a: Execute Unit Tests
-call "vstest.console.exe" "%DEPLOYMENT_SOURCE%\CharacterManager.Tests\bin\Debug\CharacterManager.Tests.dll"
- 
-IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. Build to the temporary path
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
