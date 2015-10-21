@@ -153,6 +153,7 @@
     <Compile Include="Migrations\201510210446043_ValidRacialClassesRenamed.Designer.cs">
       <DependentUpon>201510210446043_ValidRacialClassesRenamed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\SeedData\InvalidRacialClassInitializer.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\InvalidRacialClass.cs" />
     <Compile Include="Profiles\CharacterProfile.cs" />
