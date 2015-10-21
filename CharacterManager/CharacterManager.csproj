@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="Context\Configurations\CharacterTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\ClassTypeConfiguration.cs" />
+    <Compile Include="Context\Configurations\InvalidRacialFactionTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\InvalidRacialClassTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
@@ -153,7 +154,12 @@
     <Compile Include="Migrations\201510210446043_ValidRacialClassesRenamed.Designer.cs">
       <DependentUpon>201510210446043_ValidRacialClassesRenamed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.cs" />
+    <Compile Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.Designer.cs">
+      <DependentUpon>201510210503558_InvalidRacialFactionTypeMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\SeedData\InvalidRacialClassInitializer.cs" />
+    <Compile Include="Models\InvalidRacialFaction.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\InvalidRacialClass.cs" />
     <Compile Include="Profiles\CharacterProfile.cs" />
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510210446043_ValidRacialClassesRenamed.resx">
       <DependentUpon>201510210446043_ValidRacialClassesRenamed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510210503558_InvalidRacialFactionTypeMigration.resx">
+      <DependentUpon>201510210503558_InvalidRacialFactionTypeMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

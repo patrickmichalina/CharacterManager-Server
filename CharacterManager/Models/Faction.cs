@@ -16,5 +16,7 @@ namespace CharacterManager.Models
         /// Characters in the faction
         /// </summary>
         public virtual ICollection<Character> Characters { get; set; }
+
+        public virtual ICollection<InvalidRacialFaction> InvalidRacialFactions { get; set; }
     }
 }

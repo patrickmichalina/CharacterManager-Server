@@ -36,6 +36,8 @@ namespace CharacterManager.Models
 
         public virtual DbSet<InvalidRacialClass> InvalidRacialClasses { get; set; }
 
+        public virtual DbSet<InvalidRacialFaction> InvalidRacialFactions { get; set; }
+
         /// <summary>
         /// Construct the database.
         /// </summary>
@@ -48,6 +50,7 @@ namespace CharacterManager.Models
             modelBuilder.Configurations.Add(new FactionTypeConfiguration());
             modelBuilder.Configurations.Add(new RaceTypeConfiguration());
             modelBuilder.Configurations.Add(new InvalidRacialClassTypeConfiguration());
+            modelBuilder.Configurations.Add(new InvalidRacialFactionTypeConfiguration());
         }
     }
 }
