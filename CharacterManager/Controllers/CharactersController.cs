@@ -46,17 +46,26 @@ namespace CharacterManager.Controllers
         }
 
         /// <summary>
-        /// Delete a Character
+        /// Delete/Undelete a Character
         /// </summary>
         /// <param name="name">The character's name</param>
+        /// <param name="restore">set true to restore character</param>
         /// <response code="400">Bad request</response>
         /// <response code="500">Internal Server Error</response>
         [ResponseType(typeof(Character))]
-        public IHttpActionResult Delete(string name)
+        public IHttpActionResult Delete(string name, bool restore = false)
         {
             if (string.IsNullOrEmpty(name)) return BadRequest("Must supply an id");
 
-            var _saveOperationResult = _repository.DeleteCharacter(name);
+            var _saveOperationResult = 0;
+
+            if (restore)
+            {
+                _saveOperationResult = _repository.RestoreCharacter(name);
+            } else
+            {
+                _saveOperationResult = _repository.DeleteCharacter(name);
+            }
 
             if (_saveOperationResult == 0) return NotFound();
 
