@@ -23,6 +23,7 @@ namespace CharacterManager
                 cfg.AddProfile<CharacterProfile>();
                 cfg.AddProfile<RaceProfile>();
                 cfg.AddProfile<ClassProfile>();
+                cfg.AddProfile<FactionProfile>();
             });
 
             Mapper.AssertConfigurationIsValid();

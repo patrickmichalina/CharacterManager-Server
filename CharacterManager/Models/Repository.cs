@@ -106,6 +106,14 @@ namespace CharacterManager.Models
             return AutoMapper.Mapper.Map<List<ClassViewModel>>(_context.Classes);
         }
 
+        /// <summary>
+        /// Gets all races from the database and converts them to a view-model for the client
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<FactionViewModel> GetFactions()
+        {
+            return AutoMapper.Mapper.Map<List<FactionViewModel>>(_context.Factions);
+        }
 
 
         /// <summary>
