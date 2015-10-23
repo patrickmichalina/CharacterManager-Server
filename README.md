@@ -1,6 +1,15 @@
 # World of Warcraft Character Manager API
 Web services for the management of a World of Warcraft player’s characters.
 
+## Hosting
+These [demo web services](https://character-manager.azurewebsites.net) are hosted on Microsoft Azure under the Web App platform. Simple swagger documentation can be found [here](https://character-manager.azurewebsites.net/swagger).
+
+## Security
+There isn't any. Thrash it.
+
+## Integration
+Whatever is commited to the master branch gets deployed. Any tests in the solution also get ran before deployment.
+
 ## Character Properties
 1. Name
 2. Level (1 – 90)
