@@ -80,13 +80,26 @@ namespace CharacterManager.Models
         }
 
         /// <summary>
-        /// Gets a;; characters from the database and converts them to a view-model for the client
+        /// Gets all characters from the database and converts them to a view-model for the client
         /// </summary>
         /// <returns></returns>
         public IEnumerable<CharacterViewModel> GetCharacters()
         {
             return AutoMapper.Mapper.Map<IEnumerable<CharacterViewModel>>(_context.Characters);
         }
+
+        /// <summary>
+        /// Gets all races from the database and converts them to a view-model for the client
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<RaceViewModel> GetRaces()
+        {
+            return AutoMapper.Mapper.Map<IEnumerable<RaceViewModel>>(_context.Races);
+        }
+
+
+
+
         
         /// <summary>
         /// Delete a character from the database - this is actually only a logical delete (record remains in db)

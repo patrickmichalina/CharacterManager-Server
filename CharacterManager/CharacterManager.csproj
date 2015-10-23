@@ -178,6 +178,7 @@
     <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Controllers\RacesController.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Migrations\201510210441533_ValidRacialClasses.cs" />
     <Compile Include="Migrations\201510210441533_ValidRacialClasses.Designer.cs">
@@ -200,6 +201,7 @@
     <Compile Include="Models\InvalidRacialFaction.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\InvalidRacialClass.cs" />
+    <Compile Include="Profiles\RaceProfile.cs" />
     <Compile Include="Profiles\CharacterProfile.cs" />
     <Compile Include="Migrations\201510190041412_Initial.cs" />
     <Compile Include="Migrations\201510190041412_Initial.Designer.cs">
@@ -232,6 +234,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\RaceViewModel.cs" />
     <Compile Include="ViewModels\CharacterViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
