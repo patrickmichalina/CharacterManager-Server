@@ -14,8 +14,14 @@ namespace CharacterManager.Profiles
         /// </summary>
         protected override void Configure()
         {
-            Mapper.CreateMap<Race, RaceViewModel>();
-            Mapper.CreateMap<RaceViewModel, Race>();
+            Mapper.CreateMap<Race, RaceViewModel>()
+                .ForMember(dest => dest.Name, cfg => cfg.MapFrom(src => src.Name));
+            Mapper.CreateMap<RaceViewModel, Race>()
+                .ForMember(dest => dest.Characters, cfg => cfg.Ignore())
+                .ForMember(dest => dest.Description, cfg => cfg.Ignore())
+                .ForMember(dest => dest.ImageUrl, cfg => cfg.Ignore())
+                .ForMember(dest => dest.InvalidRacialClasses, cfg => cfg.Ignore())
+                .ForMember(dest => dest.InvalidRacialFactions, cfg => cfg.Ignore())                ;
         }
 
         /// <summary>

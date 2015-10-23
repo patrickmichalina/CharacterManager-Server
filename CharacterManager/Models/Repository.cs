@@ -94,7 +94,7 @@ namespace CharacterManager.Models
         /// <returns></returns>
         public IEnumerable<RaceViewModel> GetRaces()
         {
-            return AutoMapper.Mapper.Map<IEnumerable<RaceViewModel>>(_context.Races);
+            return AutoMapper.Mapper.Map<List<RaceViewModel>>(_context.Races);
         }
 
 

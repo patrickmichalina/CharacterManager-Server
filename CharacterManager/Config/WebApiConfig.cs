@@ -21,6 +21,8 @@ namespace CharacterManager
             // Configure Automapper
             Mapper.Initialize(cfg => {
                 cfg.AddProfile<CharacterProfile>();
+                cfg.AddProfile<RaceProfile>();
+                cfg.AddProfile<ClassProfile>();
             });
 
             Mapper.AssertConfigurationIsValid();

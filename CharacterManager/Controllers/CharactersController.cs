@@ -101,5 +101,14 @@ namespace CharacterManager.Controllers
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        /// <param name="disposing"></param>
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }
