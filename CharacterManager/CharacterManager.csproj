@@ -178,6 +178,7 @@
     <Compile Include="Context\Configurations\RaceTypeConfiguration.cs" />
     <Compile Include="Context\Configurations\FactionTypeConfiguration.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
+    <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\RacesController.cs" />
     <Compile Include="Controllers\CharactersController.cs" />
     <Compile Include="Migrations\201510210441533_ValidRacialClasses.cs" />

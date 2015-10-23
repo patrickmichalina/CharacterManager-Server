@@ -97,10 +97,17 @@ namespace CharacterManager.Models
             return AutoMapper.Mapper.Map<List<RaceViewModel>>(_context.Races);
         }
 
+        /// <summary>
+        /// Gets all races from the database and converts them to a view-model for the client
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ClassViewModel> GetClasses()
+        {
+            return AutoMapper.Mapper.Map<List<ClassViewModel>>(_context.Classes);
+        }
 
 
 
-        
         /// <summary>
         /// Delete a character from the database - this is actually only a logical delete (record remains in db)
         /// </summary>
